@@ -1,0 +1,10 @@
+xterm*foreground: rgb:a8/a8/a8
+xterm*background: rgb:00/00/00
+
+URxvt.depth: 32
+URxvt.background: [95]#000000
+URxvt.foreground: #a8a8a8
+URxvt*.transparent: false
+! URxvt*.shading: 110
+URxvt.scrollBar: false
+URxvt.perl-ext-common: default,tabbedex

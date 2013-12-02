@@ -1,0 +1,296 @@
+
+# Default modifier: Alt
+set $mod Mod1
+
+focus_follows_mouse no
+floating_modifier Mod4
+
+default_orientation horizontal
+new_window 1pixel
+
+# class                 border  backgr. text
+
+# light theme
+client.focused          #8aa3b8 #8aa3b8 #ffffff
+client.unfocused        #dbdbdb #dbdbdb #2c2c2c
+client.focused_inactive #dbdbdb #dbdbdb #2c2c2c
+client.urgent           #900000 #900000 #ffff00
+
+# darker theme
+client.focused          #2a51b0 #1c3571 #ffffff
+client.focused_inactive #5f676a #5f676a #ffffff
+client.unfocused        #222222 #222222 #888888
+client.urgent           #900000 #900000 #ffff00
+
+# unicode font for window titles
+font -misc-fixed-medium-*-normal-*-10-*-*-*-*-*-iso10646-*
+#font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
+
+# multi screen setup
+workspace "External display" output HDMI1
+workspace "External display" output VGA1
+
+# app running
+bindsym Mod1+r exec dmenu_run -p 'command:' -nb '#151515' -nf '#888888' -l 10 -fn '-misc-fixed-medium-*-normal-*-10-*-*-*-*-*-*-*'
+bindsym Mod4+s exec urxvt
+bindsym Mod4+g exec chromium
+bindsym Mod4+t exec ~/.i3/todolist.sh
+
+# status changing
+bindcode 173 exec mpc prev
+bindcode 171 exec mpc next
+bindcode 172 exec mpc toggle
+
+bindcode 121 exec "amixer sset Master,0 toggle"
+bindcode 122 exec "amixer sset Master,0 1%-"
+bindcode 123 exec "amixer sset Master,0 1%+"
+
+#bindcode 121 exec volti-remote -m
+#bindcode 122 exec volti-remote -d 5
+#bindcode 123 exec volti-remote -i 5
+
+#bindsym XF86AudioMute exec amixer sset Master,0 toggle
+#bindsym XF86AudioLowerVolume exec amixer sset Master,0 5-
+#bindsym XF86AudioRaiseVolume exec amixer sset Master,0 5+
+
+#bindsym XF86AudioMute exec bash -c "amixer set Master,0 toggle"
+#bindsym XF86AudioLowerVolume exec bash -c "amixer set Master,0 5-"
+#bindsym XF86AudioRaiseVolume exec bash -c "amixer set Master,0 5+"
+
+bindcode 107 exec scrot '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'mv $f ~/screenshots/'
+bindcode 148 exec urxvt -e qalc
+
+bindsym XF86Display exec ~pepol/scripts/dispswitch.sh
+
+bindsym Mod4+l exec ~pepol/scripts/lock.sh 
+bindsym Mod4+f exec dmenu_run -p 'command:' -nb '#151515' -nf '#888888' -l 10 -fn '-misc-fixed-medium-*-normal-*-10-*-*-*-*-*-*-*'
+bindsym Mod4+e exec thunar
+
+bindsym Mod4+m exec notify-send -a mpd -u low -i audio-x-generic "Now Playing:" "$(ncmpcpp --now-playing '%a - %t')"
+
+# i3 shortcuts
+bindsym Mod1+q kill
+
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+
+mode "(L)ogout, (R)eboot, (P)oweroff" {
+    bindsym r exec systemctl reboot
+    bindsym l i3-msg exit
+    bindsym p exec systemctl poweroff
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+q mode "(L)ogout, (R)eboot, (P)oweroff"
+
+mode "(L)ock, (S)uspend, (H)ibernate" {
+    bindsym l exec /home/pepol/scripts/lock.sh
+    bindsym s exec /home/pepol/scripts/suspend.sh
+    bindsym h exec /home/pepol/scripts/hibernate.sh
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode "(L)ock, (S)uspend, (H)ibernate"
+
+#bindsym $mod+Shift+E exec ~/.i3/dmenu_session.sh
+bindsym $mod+b border toggle
+
+# focus
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal
+bindsym $mod+g split h
+# split in vertical
+bindsym $mod+v split v
+
+# enter fullscreen
+bindsym $mod+f fullscreen
+
+# change layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+o layout splitv
+bindsym $mod+u layout splith
+
+# toggle tiling/floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling/floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus parent container
+bindsym $mod+a focus parent
+bindsym $mod+c focus child
+
+# scratchpad
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace "0: Work"
+bindsym $mod+2 workspace "1: Web"
+bindsym $mod+3 workspace "2: Misc"
+bindsym $mod+4 workspace "3: Mail"
+bindsym $mod+5 workspace "4: Music"
+bindsym $mod+6 workspace "5"
+bindsym $mod+7 workspace "6"
+bindsym $mod+8 workspace "7"
+bindsym $mod+9 workspace "External display"
+bindsym $mod+0 workspace "/dev/null"
+bindsym $mod+comma workspace prev
+bindsym $mod+period workspace next
+
+# move to workspace
+bindsym $mod+Shift+1 move container to workspace "0: Work"
+bindsym $mod+Shift+2 move container to workspace "1: Web"
+bindsym $mod+Shift+3 move container to workspace "2: Misc"
+bindsym $mod+Shift+4 move container to workspace "3: Mail"
+bindsym $mod+Shift+5 move container to workspace "4: Music"
+bindsym $mod+Shift+6 move container to workspace "5"
+bindsym $mod+Shift+7 move container to workspace "6"
+bindsym $mod+Shift+8 move container to workspace "7"
+bindsym $mod+Shift+9 move container to workspace "External display"
+bindsym $mod+Shift+0 move container to workspace "/dev/null"
+bindsym $mod+Shift+comma move container to workspace prev
+bindsym $mod+Shift+period move container to workspace next
+
+# assign windows to workspaces
+assign [class="psi"] 2: Misc
+assign [class="Skype"] 2: Misc
+assign [class="Ekiga"] 2: Misc
+assign [class="Chromium"] 1: Web
+assign [class="Firefox"] 1: Web
+assign [title="mutt"] 3: Mail
+assign [class="Thunderbird"] 3: Mail
+assign [title="ncmpcpp"] 4: Music
+
+for_window [class="Chromium"] border 1pixel
+for_window [class="psi"] floating enable
+for_window [class="Psi"] floating enable
+for_window [class="Ekiga"] floating enable
+for_window [class="Skype"] floating enable
+for_window [class="MPlayer"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="Gksu"] floating enable
+for_window [title="su"] floating enable
+for_window [title="0 A.D."] floating enable
+for_window [class="Thunar"] floating enable
+for_window [class="Mcomix"] floating enable
+for_window [class="Wicd-client.py"] floating enable
+for_window [class="Vidalia"] floating enable
+for_window [class="Bitmessagemain.py"] floating enable
+for_window [class="Firefox" title="Library"] floating enable
+for_window [title="Firefox Preferences"] floating enable
+for_window [class="ffplay"] floating enable
+for_window [class="Vlc"] floating enable
+for_window [class="Smplayer"] floating enable
+
+for_window [class="SPad XTerm"] border 1pixel
+for_window [class="SPad XTerm"] move scratchpad
+for_window [title="SPad URxvt"] border 1pixel
+for_window [title="SPad URxvt"] move scratchpad
+
+for_window [title="ncmpcpp"] border none
+for_window [title="mutt"] border none
+
+# resize window
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym $mod+h resize shrink width 1 px or 1 ppt
+    bindsym $mod+j resize grow height 1 px or 1 ppt
+    bindsym $mod+k resize shrink height 1 px or 1 ppt
+    bindsym $mod+l resize grow width 1 px or 1 ppt
+
+    bindsym $mod+Left resize shrink width 1 px or 1 ppt
+    bindsym $mod+Down resize grow height 1 px or 1 ppt
+    bindsym $mod+Up resize shrink height 1 px or 1 ppt
+    bindsym $mod+Right resize grow width 1 px or 1 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+bar {
+    #status_command conky -c /home/pepol/.i3/conkyrc
+    status_command i3status
+
+    position top
+    output LVDS1
+    tray_output LVDS1
+
+    workspace_buttons yes
+
+    colors {
+        # light
+        background #dbdbdb
+        statusline #666666
+
+        focused_workspace   #ffffff #8aa3b8
+        active_workspace    #2c2c2c #dbdbdb
+        inactive_workspace  #2c2c2c #dbdbdb
+        urgent_workspace    #ffff00 #900000
+
+        # dark
+        background #303030
+        statusline #f0f0f0
+
+        focused_workspace   #ffffff #2a51b0
+        active_workspace    #ffffff #333333
+        inactive_workspace  #999999 #202020
+        urgent_workspace    #ffff00 #900000
+    }
+}
+
+exec ~/scripts/trackpoint.sh
+#exec ivman
+exec fbsetbg -l
+exec ~/.i3/autostart.sh
+
+#exec xcompmgr -c -t-5 -l-5 -r4.2 -o.55
+#exec amixer sset Master,0 0
+exec psi
+#exec skype
+#exec batti
+#exec volwheel
+#exec volti
+exec dropboxd
+#exec xterm -class "SPad XTerm"
+exec urxvt -title "SPad URxvt"
+exec firefox
+exec thunderbird
+exec urxvt -e ncmpcpp

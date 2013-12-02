@@ -1,0 +1,112 @@
+[user]
+	name = Peter Polacik
+	email = polacik.p@gmail.com
+    signingkey = 333B8F7E
+
+[color]
+    ui = true
+
+[core]
+    excludesfile = /home/pepol/.gitignore_global
+    pager = less -x4
+	editor = vim
+    whitespace = trailing-space,space-before-tab,indent-with-non-tab
+
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpuser = polacik.p@gmail.com
+    smtpserverport = 587
+
+[imap]
+    folder = "[Gmail]/Drafts"
+    host = imaps://imap.gmail.com
+    user = polacik.p@gmail.com
+    pass = PASSWORD
+    port = 993
+    sslverify = false
+
+[commit]
+    template = /home/pepol/.gitmessage
+
+[merge]
+    tool = vimdiff
+
+[push]
+    default = tracking
+
+[pull]
+    default = current
+
+[diff]
+    memonicprefix = true
+	algorithm = patience
+
+[branch]
+    autosetuprebase = always
+
+[apply]
+    whitespace = nowarn
+
+[alias]
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    le = log --oneline --decorate
+
+    filelog = log -u
+    fl = log -u
+
+    dl = "!git ll -1"
+    dlc = diff --cached HEAD^
+
+    dr = "!f() { git diff "$1"^.."$1"; }; f"
+    lc = "!f() { git ll "$1"^.."$1"; }; f"
+    diffr = "!f() { git diff "$1"^.."$1"; }; f"
+
+    f = "!git ls-files | grep -i"
+    grep = grep -Ii
+    gr = grep -Ii
+    gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+
+    lasttag = describe --tags --abbrev=0
+    lt = describe --tags --abbrev=0
+
+    cp = cherry-pick
+    st = status -s
+    cl = clone
+    ci = commit
+    cm = commit -m
+    cma = commit -a -m
+    ca = commit --amend
+    amend = commit --amend
+    caa = commit -a --amend -C HEAD
+    co = checkout
+    br = branch
+    diff = diff --word-diff
+    dc = diff --cached
+    r = reset
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+    ai = add --interactive
+
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+
+    assume = update-index --asume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+
+    ours = "!f() { git checkout --ours $@ && git add %@; }; f"
+    theirs = "!f() { git checkout --theirs $@ && git add %@; }; f"
