@@ -1,3 +1,4 @@
+! URxvt*.transparent: true
 xterm*foreground: rgb:a8/a8/a8
 xterm*background: rgb:00/00/00
 
@@ -7,4 +8,13 @@ URxvt.foreground: #a8a8a8
 URxvt*.transparent: false
 ! URxvt*.shading: 110
 URxvt.scrollBar: false
-URxvt.perl-ext-common: default,tabbedex
+URxvt.perl-ext-common: default,tabbedex,keyboard-select,clipboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.clipboard.autocopy: true
+
+URxvt*color4: RoyalBlue
+URxvt*color12: RoyalBlue
+URxvt*.shading: 115

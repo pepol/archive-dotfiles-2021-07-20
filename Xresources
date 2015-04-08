@@ -1,5 +1,0 @@
-URxvt*.transparent: true
-URxvt*.shading: 115
-URxvt.depth: 32
-URxvt.background: black
-URxvt.foreground: lightgrey
