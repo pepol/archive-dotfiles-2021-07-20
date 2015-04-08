@@ -11,8 +11,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-setxkbmap -layout us
-setxkbmap -option terminate:ctrl_alt_bksp
+setxkbmap -layout us &
+setxkbmap -option terminate:ctrl_alt_bksp &
 
 #exec openbox-session
 #exec subtle
@@ -20,4 +20,16 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
+
+## i3
 exec i3 
+
+## XMonad
+#xrdb -merge .Xresources
+#xsetroot -cursor_name left_ptr &
+#exec xmonad
+
+## DWM
+#/home/pepol/scripts/autostart.sh &
+#/home/pepol/scripts/dwmstatus.sh &
+#exec /home/pepol/bin/dwm
