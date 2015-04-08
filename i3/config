@@ -66,7 +66,7 @@ bindsym Mod4+l exec ~pepol/scripts/lock.sh
 bindsym Mod4+f exec dmenu_run -p 'command:' -nb '#151515' -nf '#888888' -l 10 -fn '-misc-fixed-medium-*-normal-*-10-*-*-*-*-*-*-*'
 bindsym Mod4+e exec thunar
 
-bindsym Mod4+m exec notify-send -a mpd -u low -i audio-x-generic "Now Playing:" "$(ncmpcpp --now-playing '%a - %t')"
+bindsym Mod4+m exec notify-send -a mpd -u low -i audio-x-generic "Now Playing:" "$(mpc -f '%artist% - %title%' current)"
 
 # i3 shortcuts
 bindsym Mod1+q kill
@@ -86,7 +86,7 @@ mode "(L)ogout, (R)eboot, (P)oweroff" {
 bindsym $mod+Shift+q mode "(L)ogout, (R)eboot, (P)oweroff"
 
 mode "(L)ock, (S)uspend, (H)ibernate" {
-    bindsym l exec /home/pepol/scripts/lock.sh
+    bindsym l exec /home/pepol/scripts/lock.i3.sh
     bindsym s exec /home/pepol/scripts/suspend.sh
     bindsym h exec /home/pepol/scripts/hibernate.sh
 
@@ -180,6 +180,7 @@ bindsym $mod+Shift+period move container to workspace next
 
 # assign windows to workspaces
 assign [class="psi"] 2: Misc
+assign [class="Pidgin"] 2: Misc
 assign [class="Skype"] 2: Misc
 assign [class="Ekiga"] 2: Misc
 assign [class="Chromium"] 1: Web
@@ -191,6 +192,8 @@ assign [title="ncmpcpp"] 4: Music
 for_window [class="Chromium"] border 1pixel
 for_window [class="psi"] floating enable
 for_window [class="Psi"] floating enable
+for_window [class="Pidgin"] floating enable
+for_window [class="Pidgin"] border full
 for_window [class="Ekiga"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="MPlayer"] floating enable
@@ -208,6 +211,7 @@ for_window [title="Firefox Preferences"] floating enable
 for_window [class="ffplay"] floating enable
 for_window [class="Vlc"] floating enable
 for_window [class="Smplayer"] floating enable
+for_window [class="Pinentry"] floating enable
 
 for_window [class="SPad XTerm"] border 1pixel
 for_window [class="SPad XTerm"] move scratchpad
@@ -283,8 +287,9 @@ exec ~/.i3/autostart.sh
 
 #exec xcompmgr -c -t-5 -l-5 -r4.2 -o.55
 #exec amixer sset Master,0 0
-exec psi
-#exec skype
+exec pidgin
+#exec psi
+exec skype
 #exec batti
 #exec volwheel
 #exec volti

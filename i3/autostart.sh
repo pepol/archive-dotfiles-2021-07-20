@@ -14,3 +14,5 @@ xbacklight -set 80 &
 dunst &
 ## Wi-Fi GTK client
 #wicd-gtk -t &
+
+~/scripts/mail-notify.sh
