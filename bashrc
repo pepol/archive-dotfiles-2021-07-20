@@ -46,8 +46,10 @@ txtrst='\e[0m'    # Text Reset
 
 export EDITOR=vim
 export BROWSER="chromium"
-export PATH=~pepol/bin:/opt/erlware/bin:$PATH
+export ANT_HOME=/usr/share/apache-ant
+export PATH=~pepol/src/other/v/debug/src/cmd:~pepol/src/other/v/debug/src/script:~pepol/bin:/opt/erlware/bin:$PATH
 export GOPATH=~pepol/src/go
+export SENDMAIL="/usr/bin/sendmail -t %<"
 
 pre_prompt () {
     printf "\n $txtred%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$PWD" "$(~pepol/bin/vcprompt)"
