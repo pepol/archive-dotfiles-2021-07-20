@@ -24,6 +24,7 @@ client.urgent           #900000 #900000 #ffff00
 
 # unicode font for window titles
 font -misc-fixed-medium-*-normal-*-10-*-*-*-*-*-iso10646-*
+#font pango:Inconsolata for Powerline 8
 #font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
 
 # multi screen setup
@@ -32,7 +33,8 @@ workspace "External display" output VGA1
 
 # app running
 bindsym Mod1+r exec dmenu_run -p 'command:' -nb '#151515' -nf '#888888' -l 10 -fn '-misc-fixed-medium-*-normal-*-10-*-*-*-*-*-*-*'
-bindsym Mod4+s exec urxvt
+#bindsym Mod4+s exec urxvt
+bindsym Mod4+s exec st
 bindsym Mod4+g exec chromium
 bindsym Mod4+t exec ~/.i3/todolist.sh
 
@@ -58,7 +60,8 @@ bindcode 123 exec "amixer sset Master,0 1%+"
 #bindsym XF86AudioRaiseVolume exec bash -c "amixer set Master,0 5+"
 
 bindcode 107 exec scrot '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'mv $f ~/screenshots/'
-bindcode 148 exec urxvt -e qalc
+#bindcode 148 exec urxvt -e qalc
+bindcode 148 exec st -e qalc
 
 bindsym XF86Display exec ~pepol/scripts/dispswitch.sh
 
@@ -192,10 +195,12 @@ assign [title="ncmpcpp"] 4: Music
 for_window [class="Chromium"] border 1pixel
 for_window [class="psi"] floating enable
 for_window [class="Psi"] floating enable
-for_window [class="Pidgin"] floating enable
-for_window [class="Pidgin"] border full
+#for_window [class="Pidgin"] floating enable
+#for_window [class="Pidgin"] border 1px
 for_window [class="Ekiga"] floating enable
-for_window [class="Skype"] floating enable
+#for_window [class="Skype"] floating enable
+#for_window [class="Skype"] border 1px
+for_window [class="Skype" title="Options"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Gksu"] floating enable
@@ -217,6 +222,8 @@ for_window [class="SPad XTerm"] border 1pixel
 for_window [class="SPad XTerm"] move scratchpad
 for_window [title="SPad URxvt"] border 1pixel
 for_window [title="SPad URxvt"] move scratchpad
+for_window [title="SPad ST"] border 1pixel
+for_window [title="SPad ST"] move scratchpad
 
 for_window [title="ncmpcpp"] border none
 for_window [title="mutt"] border none
@@ -285,6 +292,7 @@ exec ~/scripts/trackpoint.sh
 exec fbsetbg -l
 exec ~/.i3/autostart.sh
 
+exec --no-startup-id "i3-msg 'workspace 2: Misc; append_layout /home/pepol/.i3/workspace-misc.json'"
 #exec xcompmgr -c -t-5 -l-5 -r4.2 -o.55
 #exec amixer sset Master,0 0
 exec pidgin
@@ -295,7 +303,10 @@ exec skype
 #exec volti
 exec dropboxd
 #exec xterm -class "SPad XTerm"
-exec urxvt -title "SPad URxvt"
+#exec urxvt -title "SPad URxvt"
+exec st -title "SPad ST"
 exec firefox
 exec thunderbird
-exec urxvt -e ncmpcpp
+#exec urxvt -e ncmpcpp
+exec st -e ncmpcpp
+

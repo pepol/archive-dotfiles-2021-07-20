@@ -52,7 +52,7 @@ export GOPATH=~pepol/src/go
 export SENDMAIL="/usr/bin/sendmail -t %<"
 
 pre_prompt () {
-    printf "\n $txtred%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$PWD" "$(~pepol/bin/vcprompt)"
+    printf "\n $txtred%s@%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$HOSTNAME" "$PWD" "$(~pepol/bin/vcprompt)"
 }
 
 PROMPT_COMMAND=pre_prompt
@@ -69,3 +69,7 @@ shopt -s globstar
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 [[ -f /etc/profile.d/erlware.sh ]] && . /etc/profile.d/erlware.sh
+
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
