@@ -22,7 +22,7 @@ setxkbmap -option terminate:ctrl_alt_bksp &
 # ...or the Window Manager of your choice
 
 ## i3
-exec i3 
+#exec i3 
 
 ## XMonad
 #xrdb -merge .Xresources
@@ -30,6 +30,6 @@ exec i3
 #exec xmonad
 
 ## DWM
-#/home/pepol/scripts/autostart.sh &
-#/home/pepol/scripts/dwmstatus.sh &
-#exec /home/pepol/bin/dwm
+/home/pepol/scripts/autostart.sh &
+/home/pepol/scripts/dwmstatus.sh &
+exec dwm

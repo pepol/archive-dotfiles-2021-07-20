@@ -11,7 +11,7 @@ static char font[] = "-misc-fixed-medium-*-normal-*-12-*-*-*-*-*-iso10646-*";
 //static char font[] = "Liberation Mono:pixelsize=10:antialias=true:autohint=true";
 //static char font[] = "Source Code Pro:pixelsize=10:antialias=true:autohint=true";
 static int borderpx = 0;
-static char shell[] = "/bin/sh";
+static char shell[] = "/usr/bin/zsh";
 
 /* Kerning / character bounding-box mutlipliers */
 float cwscale = 1.0;
