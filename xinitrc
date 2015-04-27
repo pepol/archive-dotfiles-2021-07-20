@@ -11,7 +11,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-setxkbmap -layout us &
+setxkbmap -layout us -option ctrl:nocaps &
 setxkbmap -option terminate:ctrl_alt_bksp &
 
 #exec openbox-session
