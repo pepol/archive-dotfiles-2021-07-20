@@ -26,6 +26,7 @@ set colorcolumn=80
 " Section: Airline {{{
 
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
 " }}}
@@ -76,6 +77,12 @@ noremap <Right> <nop>
 " Normal Mode
 nmap <leader>n :set invnumber<CR>
 nnoremap <space> za
+nmap <leader>T :enew<CR>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>bl :ls<CR>
+
 
 " Insert Mode
 inoremap jj <esc>
