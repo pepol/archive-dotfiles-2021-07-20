@@ -15,8 +15,10 @@ dunst &
 
 ## APPS
 #psi &
-pidgin &
+#pidgin &
+gajim &
 skype &
+qtox &
 #dropboxd &
 # TODO: add tmux session in urxvt
 #urxvt -title "tilde-term" -geometry 227x21 &
@@ -27,4 +29,4 @@ firefox &
 thunderbird &
 #gpodder &
 
-~/scripts/mail-notify.sh
+~pepol/scripts/mail-notify.sh
