@@ -8,7 +8,7 @@
 fbsetbg -l &
 amixer sset Master,0 35% &
 xset -b &
-setxkbmap -layout us,sk -option "" &
+setxkbmap -layout us,sk -option "ctrl:nocaps" &
 xset dpms 300 600 900 &
 xbacklight -set 80 &
 dunst &
