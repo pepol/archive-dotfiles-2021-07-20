@@ -16,6 +16,7 @@
   template = /home/pepol/.gitmessage
 
 [merge]
+  summary = true
   tool = vimdiff
 
 [push]
@@ -96,3 +97,5 @@
 
   ours = "!f() { git checkout --ours $@ && git add %@; }; f"
   theirs = "!f() { git checkout --theirs $@ && git add %@; }; f"
+[rerere]
+  enabled = true
