@@ -97,6 +97,8 @@ nmap <leader>cs <Plug>SlimeConfig
 nmap <leader>ss <Plug>SlimeLineSend
 nmap <leader>s <Plug>SlimeMotionSend
 
+nmap <leader>t :TagbarToggle<CR>
+
 " Insert Mode
 inoremap jj <esc>
 inoremap <Up> <nop>
