@@ -23,6 +23,15 @@ set colorcolumn=80
 
 " }}}
 
+" Section: SLIME {{{
+
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "slime:1.0"}
+let g:slime_no_mappings = 1
+let g:slime_python_ipython = 1
+
+" }}}
+
 " Section: Airline {{{
 
 let g:airline_powerline_fonts = 1
@@ -83,6 +92,10 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 
+nmap <leader>p <Plug>SlimeParagraphSend
+nmap <leader>cs <Plug>SlimeConfig
+nmap <leader>ss <Plug>SlimeLineSend
+nmap <leader>s <Plug>SlimeMotionSend
 
 " Insert Mode
 inoremap jj <esc>
@@ -92,6 +105,7 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 
 " Visual Mode
+xmap <leader>s <Plug>SlimeRegionSend
 
 " }}}
 " vim:foldmethod=marker:foldlevel=0
