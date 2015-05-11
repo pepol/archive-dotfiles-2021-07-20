@@ -100,6 +100,7 @@ nmap <leader>ss <Plug>SlimeLineSend
 nmap <leader>s <Plug>SlimeMotionSend
 
 nmap <leader>t :TagbarToggle<CR>
+nmap <leader>tu :UpdateTags<CR>
 
 " Insert Mode
 inoremap jj <esc>
