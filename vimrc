@@ -21,6 +21,8 @@ set bg=dark
 set colorcolumn=80
 "set cursorline
 
+let g:easytags_events = ['BufWritePost']
+
 " }}}
 
 " Section: SLIME {{{
