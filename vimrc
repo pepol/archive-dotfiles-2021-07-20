@@ -66,6 +66,29 @@ endif
 
 " }}}
 
+" Section: Syntastic {{{
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_quiet_messages = { "type": "style" }
+
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_erlang_checkers = ['erlang']
+let g:syntastic_java_checkers = ['javac']
+
+" }}}
+
 " Section: Folding {{{
 
 set foldenable
