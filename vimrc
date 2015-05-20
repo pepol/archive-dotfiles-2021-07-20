@@ -1,7 +1,7 @@
 " Section: General Settings {{{
 
 set nocompatible
-set t_Co=16
+set t_Co=256
 call pathogen#infect()
 set nowrap
 set nohlsearch
