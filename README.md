@@ -37,3 +37,12 @@ used:
  - `vim-easytags`
  - `vim-fugitive`
  - `vim-slime`
+
+## tmux
+
+Tmux configuration requires `tmux-powerline` bash-based plugin for status info.
+
+## fonts
+
+Both `vim` as well as `tmux` require font with powerline symbols available.
+To do this, consult the official `powerline` documentation.
