@@ -125,6 +125,9 @@ nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>t :TagbarToggle<CR>
 nmap <leader>tu :UpdateTags<CR>
 
+nmap <leader>eo :Errors<CR>
+nmap <leader>ec :lclose<CR>
+
 " Insert Mode
 inoremap jj <esc>
 inoremap <Up> <nop>
