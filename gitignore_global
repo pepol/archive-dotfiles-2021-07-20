@@ -1,5 +1,4 @@
-*.o
-*.bin
+# general
 test*
 *.swp
 *.bak
@@ -7,3 +6,30 @@ test*
 *.spec
 .project.json
 .description
+
+# python
+__pycache__/
+*.py[cod]
+.Python
+env/
+build/
+dist/
+eggs/
+*.egg-info/
+*.egg
+
+# lisp
+*.fasl
+
+# erlang
+*.beam
+
+# java
+*.class
+
+# binaries
+*.o
+*.a
+*.so
+*.bin
+*.out
