@@ -30,8 +30,11 @@ usage() {
   exit 1
 }
 
-ALL_TARGETS=(git i3 dwm scripts bash zsh tmux utils)
+ALL_TARGETS="git i3 dwm scripts bash zsh tmux utils"
+TARGETS="all"
 DOWNLOAD=0
+
+OPTIND=1
 
 while getopts dhu opt; do
   case "$opt" in
@@ -41,3 +44,15 @@ while getopts dhu opt; do
     \?) usage ;;
   esac
 done
+
+shift $((OPTIND - 1))
+
+[ "$1" = "--" ] && shift
+
+[[ -n "$@" ]] && TARGETS="$@"
+# TODO: Make target "all" change to $ALL_TARGETS.
+
+# TODO: Add bootstrapping procedure (config linking).
+
+
+# TODO: Add requirements downloading (vim plugins, tmux powerline, etc.).
