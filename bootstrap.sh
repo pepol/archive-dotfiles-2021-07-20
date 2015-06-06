@@ -50,9 +50,39 @@ shift $((OPTIND - 1))
 [ "$1" = "--" ] && shift
 
 [[ -n "$@" ]] && TARGETS="$@"
-# TODO: Make target "all" change to $ALL_TARGETS.
 
-# TODO: Add bootstrapping procedure (config linking).
 
+local all=0
+local git=0
+local i3=0
+local dwm=0
+local scripts=0
+local bash=0
+local zsh=0
+local tmux=0
+local utils=0
+
+for target in $TARGETS; do
+  case "$target" in
+    "all") all=1 ;;
+    "git") git=1 ;;
+    "i3") i3=1 ;;
+    "dwm") dwm=1 ;;
+    "scripts") scripts=1 ;;
+    "bash") bash=1 ;;
+    "zsh") zsh=1 ;;
+    "tmux") tmux=1 ;;
+    "utils") utils=1 ;;
+  esac
+done
+
+[[ ( $all -eq 1 ) -o ( $git -eq 1 ) ]] && ln -sf gitconfig ~/.gitconfig && ln -sf gitignore_global ~/.gitignore_global
+[[ ( $all -eq 1 ) -o ( $i3 -eq 1 ) ]] && ln -sf i3 ~/.i3 && ln -sf i3status.conf ~/.i3status.conf
+[[ ( $all -eq 1 ) -o ( $dwm -eq 1 ) ]] && mkdir -p build && cd build && wget http://dl.suckless.org/dwm/dwm-6.0.tar.gz && tar -xzf dwm-6.0.tar.gz && wget http://dwm.suckless.org/patches/dwm-6.0-deck.diff && wget http://dwm.suckless.org/patches/dwm-6.0-pertag.diff && wget http://dwm.suckless.org/patches/dwm-6.0-systray.diff && cd .. && ln -sf dwmconfig.h build/dwm-6.0/config.h
+[[ ( $all -eq 1 ) -o ( $scripts -eq 1 ) ]] && ln -sf scripts ~/scripts
+[[ ( $all -eq 1 ) -o ( $bash -eq 1 ) ]] && ln -sf bashrc ~/.bashrc
+[[ ( $all -eq 1 ) -o ( $zsh -eq 1 ) ]] && ln -sf zshrc ~/.zshrc
+[[ ( $all -eq 1 ) -o ( $tmux -eq 1 ) ]] && ln -sf tmux.conf ~/.tmux.conf && ln -sf tmux.minimal.conf ~/.tmux.minimal.conf
+[[ ( $all -eq 1 ) -o ( $utils -eq 1 ) ]] && mkdir -p ~/.fonts && cp fonts/PowerlineSymbols.otf ~/fonts/ && mkdir -p ~/.config/fontconfig/conf.d && cp fontconfig/conf.d/* ~/.config/fontconfig/conf.d && ln -sf xinitrc ~/.xinitrc && ln -sf Xdefaults ~/.Xdefaults && mkdir -p ~/.config/dunst && ln -sf dunstrc ~/.config/dunst/dunstrc
 
 # TODO: Add requirements downloading (vim plugins, tmux powerline, etc.).
