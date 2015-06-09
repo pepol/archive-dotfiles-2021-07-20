@@ -1,0 +1,13 @@
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;;; ASDF settings
+;(setf asdf:*central-registry*
+;  (list* '*default-pathname-defaults*
+;         #p"/home/pepol/src/asdf/"
+;         #p"/home/pepol/src/imterra/asdf/"
+;         asdf:*central-registry*))
