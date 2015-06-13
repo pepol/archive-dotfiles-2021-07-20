@@ -21,6 +21,7 @@ longhelp() {
   echo -e "\tzsh      - installs zsh files"
   echo -e "\ttmux     - installs tmux files"
   echo -e "\tutils    - installs utilities (fonts, X configs, notification configs)\n"
+  echo -e "\tlisp     - installs lisp files (.sbclrc, source registry configs)\n"
   exit 1
 }
 
@@ -30,7 +31,7 @@ usage() {
   exit 1
 }
 
-ALL_TARGETS="git i3 dwm scripts bash zsh tmux utils"
+ALL_TARGETS="git i3 dwm scripts bash zsh tmux utils lisp"
 TARGETS="all"
 DOWNLOAD=0
 
@@ -61,6 +62,7 @@ local bash=0
 local zsh=0
 local tmux=0
 local utils=0
+local lisp=0
 
 for target in $TARGETS; do
   case "$target" in
@@ -73,6 +75,7 @@ for target in $TARGETS; do
     "zsh") zsh=1 ;;
     "tmux") tmux=1 ;;
     "utils") utils=1 ;;
+    "lisp") lisp=1 ;;
   esac
 done
 
