@@ -87,5 +87,7 @@ done
 [[ ( $all -eq 1 ) -o ( $zsh -eq 1 ) ]] && ln -sf zshrc ~/.zshrc
 [[ ( $all -eq 1 ) -o ( $tmux -eq 1 ) ]] && ln -sf tmux.conf ~/.tmux.conf && ln -sf tmux.minimal.conf ~/.tmux.minimal.conf
 [[ ( $all -eq 1 ) -o ( $utils -eq 1 ) ]] && mkdir -p ~/.fonts && cp fonts/PowerlineSymbols.otf ~/fonts/ && mkdir -p ~/.config/fontconfig/conf.d && cp fontconfig/conf.d/* ~/.config/fontconfig/conf.d && ln -sf xinitrc ~/.xinitrc && ln -sf Xdefaults ~/.Xdefaults && mkdir -p ~/.config/dunst && ln -sf dunstrc ~/.config/dunst/dunstrc
+[[ ( $all -eq 1 ) -o ( $lisp -eq 1) ]] && ln -sf sbclrc ~/.sbclrc
+[[ ( $all -eq 1 ) -o ( $lisp -eq 1) ]] && mkdir -p ~/.config/common-lisp && ln -sf common-lisp/source-registry-conf.d ~/.config/common-lisp/source-registry-conf.d
 
 # TODO: Add requirements downloading (vim plugins, tmux powerline, etc.).
