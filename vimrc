@@ -16,6 +16,7 @@ set ff=unix
 set ffs=unix,dos
 set sw=2 sts=2 ts=2 et
 set bg=dark
+set lisp
 "colorscheme solarized
 
 set colorcolumn=80
