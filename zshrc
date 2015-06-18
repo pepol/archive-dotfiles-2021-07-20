@@ -27,21 +27,14 @@ bindkey -v
 autoload -U colors
 colors
 
-#setopt PROMPT_SUBST
+setopt PROMPT_SUBST
 
-psvar[1]=$(~pepol/bin/vcprompt)
-
-precmd() {
-  psvar[1]=$(~pepol/bin/vcprompt)
-}
-
-PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$fg_no_bold[magenta]%}%1v%{$reset_color%} %# "
-#RPROMPT="[%{$fg_no_bold[yellow]%}%* %? !%h%{$reset_color%}]"
-RPROMPT="[%{$fg_no_bold[yellow]%}${${KEYMAP/vicmd/N}/(main|viins)/I} %* %? !%h%{$reset_color%}]"
+PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$fg_no_bold[magenta]%}$(~pepol/bin/vcprompt)%{$reset_color%} %# '
+RPROMPT='[%{$fg_no_bold[yellow]%}${${KEYMAP/vicmd/N}/(main|viins)/I} %* %? !%h%{$reset_color%}]'
 
 # vi mode prompt
 function zle-line-init zle-keymap-select {
-  RPROMPT="[%{$fg_no_bold[yellow]%}${${KEYMAP/vicmd/N}/(main|viins)/I} %* %? !%h%{$reset_color%}]"
+  RPROMPT='[%{$fg_no_bold[yellow]%}${${KEYMAP/vicmd/N}/(main|viins)/I} %* %? !%h%{$reset_color%}]'
   zle reset-prompt
 }
 zle -N zle-line-init
