@@ -52,6 +52,10 @@ unalias run-help
 alias help=run-help
 ### END HELP
 
+bindkey "^r" history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-backward
+
 export EDITOR=vim
 export BROWSER="firefox"
 export PATH=~pepol/bin:/opt/erlware/bin:$PATH
+export PYTHONPATH='/home/pepol/src'
