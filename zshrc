@@ -59,3 +59,5 @@ export EDITOR=vim
 export BROWSER="firefox"
 export PATH=~pepol/bin:/opt/erlware/bin:$PATH
 export PYTHONPATH='/home/pepol/src'
+
+source /home/pepol/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
