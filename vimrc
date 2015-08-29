@@ -23,17 +23,27 @@ set colorcolumn=80
 "set cursorline
 
 let g:easytags_events = ['BufWritePost']
+"let g:easytags_autorecurse = 1
+
+" }}}
+
+" Section: SLIMV {{{
+
+let g:slimv_swank_cmd ='! tmux -L default kill-window -t slime:1 ; tmux -L default new-window -dc ~ -n sbcl -t slime:1 "sbcl --load ~/scripts/start-swank.lisp" &'
+let g:lisp_rainbow = 1
+let g:slimv_clhs_root="~/lisp/HyperSpec/Body/"
+let g:slimv_browser_cmd="firefox 2>/dev/null"
 
 " }}}
 
 " Section: SLIME {{{
-
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "slime:1.0"}
-let g:slime_no_mappings = 1
-let g:slime_python_ipython = 1
-
-" }}}
+"
+"let g:slime_target = "tmux"
+"let g:slime_default_config = {"socket_name": "default", "target_pane": "slime:1.0"}
+"let g:slime_no_mappings = 1
+"let g:slime_python_ipython = 1
+"
+"" }}}
 
 " Section: Airline {{{
 
@@ -102,7 +112,7 @@ set foldmethod=indent
 
 " Section: Shortcuts {{{
 
-let mapleader = ","
+let mapleader = " "
 
 noremap <Up> <nop>
 noremap <Down> <nop>
