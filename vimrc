@@ -31,7 +31,8 @@ let g:easytags_events = ['BufWritePost']
 
 let g:slimv_swank_cmd ='! tmux -L default kill-window -t slime:1 ; tmux -L default new-window -dc ~ -n sbcl -t slime:1 "sbcl --load ~/scripts/start-swank.lisp" &'
 let g:lisp_rainbow = 1
-let g:slimv_clhs_root="~/lisp/HyperSpec/Body/"
+"let g:slimv_clhs_root="~/lisp/HyperSpec/Body/"
+let g:slimv_clhs_root="/usr/share/doc/hyperspec-7.0/HyperSpec/Body/"
 let g:slimv_browser_cmd="firefox 2>/dev/null"
 
 " }}}
