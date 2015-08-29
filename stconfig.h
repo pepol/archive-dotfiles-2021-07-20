@@ -10,6 +10,7 @@ static char font[] = "-misc-fixed-medium-*-normal-*-12-*-*-*-*-*-iso10646-*";
 //static char font[] = "Meslo S for Powerline:pixelsize=8:antialias=true:autohint=true";
 //static char font[] = "Liberation Mono:pixelsize=10:antialias=true:autohint=true";
 //static char font[] = "Source Code Pro:pixelsize=10:antialias=true:autohint=true";
+//static char font[] = "Inconsolata for Powerline:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 0;
 static char shell[] = "/usr/bin/zsh";
 

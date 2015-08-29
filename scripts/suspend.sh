@@ -3,5 +3,5 @@ mpc pause
 killall ssh
 #killall offlineimap
 ~pepol/scripts/lock.sh
-systemctl suspend
+/usr/sbin/s2ram
 #offlineimap &

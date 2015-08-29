@@ -4,29 +4,28 @@
 ## by Peter Polacik <polacik.p@gmail.com>
 
 ## SETUP
-~pepol/scripts/trackpoint.sh &
 fbsetbg -l &
-amixer sset Master,0 35% &
+#amixer sset Master,0 35% &
 xset -b &
-setxkbmap -layout us,sk -option "ctrl:nocaps" &
-xset dpms 300 600 900 &
-xbacklight -set 80 &
+setxkbmap -layout us -option "ctrl:nocaps" &
+#xset dpms 300 600 900 &
+#xbacklight -set 80 &
 dunst &
 
 ## APPS
 #psi &
 #pidgin &
 gajim &
-skype &
-qtox &
+#skype &
+#qtox &
 #dropboxd &
 # TODO: add tmux session in urxvt
 #urxvt -title "tilde-term" -geometry 227x21 &
 #urxvt -e ncmpcpp &
-st -t "tilde-term" -g 1362x350 -e tmux -L ppx new-session -A -s main &
-st -e ncmpcpp &
-firefox &
-thunderbird &
+st -t "tilde-term" -g 1914x348 -e tmux -L ppx new-session -A -s main &
+#st -e ncmpcpp &
+#firefox &
+#thunderbird &
 #gpodder &
 
 ~pepol/scripts/mail-notify.sh
