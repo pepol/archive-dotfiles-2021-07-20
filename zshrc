@@ -56,8 +56,8 @@ bindkey "^r" history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-backward
 
 export EDITOR=vim
-export BROWSER="firefox"
-export PATH=~pepol/bin:/opt/erlware/bin:$PATH
+export BROWSER="chromium"
+export PATH=~pepol/bin:$PATH
 export PYTHONPATH='/home/pepol/src'
 
 source /home/pepol/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
