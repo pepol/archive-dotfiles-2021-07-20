@@ -74,26 +74,20 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run",  "-p", "command:", "-fn", "-misc-fixed-medium-*-normal-*-10-*-*-*-*-*-*-*", "-l", "10", "-nb", "#151515", "-nf", normfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 /* media */
-static const char *mutecmd[] = { "amixer", "sset", "Master,0", "toggle", NULL };
-static const char *lowercmd[] = { "amixer", "sset", "Master,0", "1%-", NULL };
-static const char *raisecmd[] = { "amixer", "sset", "Master,0", "1%+", NULL };
+static const char *mutecmd[] = { "amixer", "-c", "1", "sset", "Master,0", "toggle", NULL };
+static const char *lowercmd[] = { "amixer", "-c", "1", "sset", "Master,0", "1%-", NULL };
+static const char *raisecmd[] = { "amixer", "-c", "1", "sset", "Master,0", "1%+", NULL };
 static const char *prevcmd[] = { "mpc", "prev", NULL };
 static const char *playcmd[] = { "mpc", "toggle", NULL };
 static const char *nextcmd[] = { "mpc", "next", NULL };
 /* display, printscreen, calc */
-static const char *dispcmd[] = { "/home/pepol/scripts/dispswitch.sh", NULL };
 static const char *printcmd[] = { "scrot", "%Y-%m-%d-%H%M%S_$wx$h.png", "-e", "mv $f ~/screenshots/", NULL };
-static const char *calccmd[] = { "st", "-e", "qalc", NULL };
+static const char *bnessup[] = { "xbacklight", "-inc", "10", NULL };
+static const char *bnessdown[] = { "xbacklight", "-dec", "10", NULL };
 /* lock, fm */
 static const char *lockcmd[] = { "/home/pepol/scripts/lock.sh", NULL };
-static const char *thunarcmd[] = { "thunar", NULL };
 /* notif */
 static const char *mpcnotifycmd[] = { "/home/pepol/scripts/mpdnotify.sh", NULL };
-/* power */
-static const char *rebootcmd[] = { "systemctl", "reboot", NULL };
-static const char *poweroffcmd[] = { "systemctl", "poweroff", NULL };
-static const char *suspendcmd[] = { "/home/pepol/scripts/suspend.sh", NULL };
-static const char *hibernatecmd[] = { "/home/pepol/scripts/hibernate.sh", NULL };
 
 
 static Key keys[] = {
@@ -104,26 +98,21 @@ static Key keys[] = {
   { 0,                            0x1008ff12, spawn,         {.v = mutecmd } },
   { 0,                            0x1008ff11, spawn,         {.v = lowercmd } },
   { 0,                            0x1008ff13, spawn,         {.v = raisecmd } },
-  { 0,                            0x1008ff16, spawn,         {.v = prevcmd } },
+  { Mod4Mask,                     XK_p,       spawn,         {.v = prevcmd } },
+  { Mod4Mask,                     XK_n,       spawn,         {.v = nextcmd } },
   { 0,                            0x1008ff14, spawn,         {.v = playcmd } },
-  { 0,                            0x1008ff17, spawn,         {.v = nextcmd } },
   /* disp, prtscr, calc */
-  { 0,                            0x1008ff59, spawn,         {.v = dispcmd } },
   { 0,                            0xff61,     spawn,         {.v = printcmd } },
-  { 0,                            0x1008ff1d, spawn,         {.v = calccmd } },
+  { 0,                            0x1008ff02, spawn,         {.v = bnessup } },
+  { 0,                            0x1008ff03, spawn,         {.v = bnessdown } },
   /* lock, search, fm, notify */
   { Mod4Mask,                     XK_l,      spawn,          {.v = lockcmd } },
   { Mod4Mask,                     XK_f,      spawn,          {.v = dmenucmd } },
-  { Mod4Mask,                     XK_e,      spawn,          {.v = thunarcmd } },
   { Mod4Mask,                     XK_m,      spawn,          {.v = mpcnotifycmd } },
 
   /* dwm */
   { MODKEY,                       XK_q,      killclient,     {0} },
   { Mod4Mask|ShiftMask,           XK_l,      quit,           {0} },
-  { Mod4Mask|ShiftMask,           XK_r,      spawn,          {.v = rebootcmd } },
-  { Mod4Mask|ShiftMask,           XK_p,      spawn,          {.v = poweroffcmd } },
-  { Mod4Mask|ShiftMask,           XK_s,      spawn,          {.v = suspendcmd } },
-  { Mod4Mask|ShiftMask,           XK_h,      spawn,          {.v = hibernatecmd } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
