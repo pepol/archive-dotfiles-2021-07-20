@@ -1,6 +1,5 @@
 [user]
   name = Peter Polacik
-  email = polacik.p@gmail.com
   email = pepol@imterra.com
 
 [color]
@@ -34,6 +33,19 @@
 
 [apply]
   whitespace = nowarn
+
+[sendemail]
+  smtpuser = pepol
+  smtpserver = groat.imterra.com
+  smtpserverport = 587
+  smtpencryption = tls
+
+[imap]
+  folder = "Drafts"
+  host = imaps://groat.imterra.com
+  user = pepol
+  port = 993
+  sslverify = false
 
 [alias]
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
