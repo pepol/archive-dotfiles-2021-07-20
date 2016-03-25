@@ -25,15 +25,20 @@ set colorcolumn=80
 let g:easytags_events = ['BufWritePost']
 "let g:easytags_autorecurse = 1
 
+let g:tex_flavor = "latex"
+
 " }}}
 
 " Section: SLIMV {{{
 
-let g:slimv_swank_cmd ='! tmux -L default kill-window -t slime:1 ; tmux -L default new-window -dc ~ -n sbcl -t slime:1 "sbcl --load ~/scripts/start-swank.lisp" &'
+"let g:slimv_swank_cmd ='! tmux -L default new-window -dc ~ -n sbcl -t repl "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp" &'
 let g:lisp_rainbow = 1
 "let g:slimv_clhs_root="~/lisp/HyperSpec/Body/"
 let g:slimv_clhs_root="/usr/share/doc/hyperspec-7.0/HyperSpec/Body/"
-let g:slimv_browser_cmd="firefox 2>/dev/null"
+"let g:slimv_browser_cmd="firefox 2>/dev/null"
+let g:slimv_browser_cmd="echo"
+let g:slimv_browser_cmd_suffix="| xargs -I{} elinks -remote 'openURL({})'"
+let g:slimv_repl_split=4
 
 " }}}
 
@@ -45,6 +50,13 @@ let g:slimv_browser_cmd="firefox 2>/dev/null"
 "let g:slime_python_ipython = 1
 "
 "" }}}
+
+" Section: Org-mode {{{
+
+let g:org_agenda_files = ['~/src/org/index.org', '~/src/org/school.org', '~/src/org/imterra.org']
+let g:org_todo_keywords = ['TODO', 'WIP', '|', 'DONE']
+
+" }}}
 
 " Section: Airline {{{
 
@@ -64,9 +76,10 @@ if has("autocmd")
     \ exe "normal g`\"" |
     \ endif
   augroup END
+  au BufReadPost *.rkt,*.rktl set filetype=scheme
   autocmd FileType xml set sw=2 sts=2 ts=2 et
   autocmd FileType html set sw=2 sts=2 ts=2 et
-  autocmd FileType python set sw=2 sts=2 ts=2 et
+  autocmd FileType python set sw=4 sts=4 ts=4 et
   autocmd FileType c set sw=2 sts=2 ts=2 et
   autocmd FileType cpp set sw=2 sts=2 ts=2 et
   autocmd FileType lisp set sw=2 sts=2 ts=2 et
@@ -75,6 +88,38 @@ if has("autocmd")
 else
   set autoindent
 endif
+
+" }}}
+
+" Section: Tagbar {{{
+
+let g:tagbar_type_go = {
+  \ 'ctagstype' : 'go',
+  \ 'kinds' : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin' : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " }}}
 
@@ -114,6 +159,7 @@ set foldmethod=indent
 " Section: Shortcuts {{{
 
 let mapleader = " "
+let maplocalleader = "\\"
 
 noremap <Up> <nop>
 noremap <Down> <nop>
