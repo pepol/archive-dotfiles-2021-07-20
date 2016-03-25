@@ -13,7 +13,9 @@ fi
 
 setxkbmap -layout us -option ctrl:nocaps &
 
+export MPD_HOST="password@localhost"
+
 ## DWM
 /home/pepol/scripts/autostart.sh &
 /home/pepol/scripts/dwmstatus.sh &
-exec dwm
+exec ck-launch-session dbus-launch dwm
