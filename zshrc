@@ -59,5 +59,6 @@ export EDITOR=vim
 export BROWSER="chromium"
 export PATH=~pepol/bin:$PATH
 export PYTHONPATH='/home/pepol/src'
+export GOPATH='/home/pepol/src/go'
 
 source /home/pepol/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
