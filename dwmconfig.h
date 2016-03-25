@@ -22,6 +22,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Pidgin",   NULL,       NULL,       1 << 2,       True,         -1 },
   { "Skype",    NULL,       NULL,       1 << 2,       True,         -1 },
+  { NULL,       "weechat",  NULL,       1 << 2,       False,        -1 },
+  { "utoxvideo", "utoxvideo", NULL,     1 << 2,       True,         -1 },
+  { "Gajim",    NULL,       NULL,       1 << 2,       False,        -1 },
   /* Browsers */
   { "Chromium", NULL,       NULL,       1 << 1,       False,        -1 },
   { NULL,       NULL,       "Firefox Preferences", 1 << 1, True,    -1 },
