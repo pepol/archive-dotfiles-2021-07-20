@@ -19,7 +19,7 @@ dunst &
 #skype &
 #qtox &
 #dropboxd &
-st -c "weechat" -e weechat &
+#st -c "weechat" -e weechat &
 # TODO: add tmux session in urxvt
 #urxvt -title "tilde-term" -geometry 227x21 &
 #urxvt -e ncmpcpp &

@@ -23,6 +23,10 @@
 
 [pull]
   default = current
+  rebase = true
+
+[rerere]
+  enabled = true
 
 [diff]
   memonicprefix = true
@@ -109,5 +113,3 @@
 
   ours = "!f() { git checkout --ours $@ && git add %@; }; f"
   theirs = "!f() { git checkout --theirs $@ && git add %@; }; f"
-[rerere]
-  enabled = true
