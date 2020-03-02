@@ -48,17 +48,24 @@ autoload -U run-help
 autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
-unalias run-help
 alias help=run-help
 ### END HELP
 
 bindkey "^r" history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-backward
+bindkey -M vicmd 'q' push-line
 
 export EDITOR=vim
-export BROWSER="chromium"
-export PATH=~pepol/bin:$PATH
+export PATH="/home/pepol/bin:$PATH"
 export PYTHONPATH='/home/pepol/src'
-export GOPATH='/home/pepol/src/go'
+export GOPATH='/home/pepol/go'
 
-source /home/pepol/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PYENV_ROOT="/home/pepol/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+export KONVOY_ROOT="/home/pepol/konvoy"
+export PATH="$KONVOY_ROOT:$PATH"
+
+eval "$(pyenv init -)"
+
+source /home/pepol/src/personal/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
