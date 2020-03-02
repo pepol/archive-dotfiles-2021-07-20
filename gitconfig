@@ -1,18 +1,14 @@
 [user]
   name = Peter Polacik
-  email = pepol@imterra.com
+  email = peter@polacik.org
 
 [color]
   ui = true
 
 [core]
-  excludesfile = /home/pepol/.gitignore_global
   pager = less -x4
   editor = vim
   whitespace = trailing-space,space-before-tab,tab-in-indent
-
-[commit]
-  template = /home/pepol/.gitmessage
 
 [merge]
   summary = true
@@ -37,19 +33,6 @@
 
 [apply]
   whitespace = nowarn
-
-[sendemail]
-  smtpuser = pepol
-  smtpserver = groat.imterra.com
-  smtpserverport = 587
-  smtpencryption = tls
-
-[imap]
-  folder = "Drafts"
-  host = imaps://groat.imterra.com
-  user = pepol
-  port = 993
-  sslverify = false
 
 [alias]
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -113,3 +96,9 @@
 
   ours = "!f() { git checkout --ours $@ && git add %@; }; f"
   theirs = "!f() { git checkout --theirs $@ && git add %@; }; f"
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
